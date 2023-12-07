@@ -56,5 +56,5 @@ app.use(errorHandler);
 mongoose
   .connect(process.env.DB)
   .then(() => console.log("connected to db"))
-  .then(() => app.listen(3000))
-  .then(() => console.log("now listening on port 3000"));
+  .then(() => app.listen(process.env.PORT || 3000))
+  .then(() => console.log("now listening..."));
