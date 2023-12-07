@@ -1,0 +1,9 @@
+- why capture call stack for custom errors?
+- patch vs put
+- list the routes in planning
+- compile model after the pre or else won't work
+- import vs require
+- findOne({id}) vs findById
+- error handling middleware after all the routes
+- error handling programming errors, if reference error, must destructure -- should alway console.log
+- sending json with error status code vs sending error
