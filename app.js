@@ -29,7 +29,15 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://posterly-frontend-production.up.railway.app/",
+    ],
+    credentials: true,
+  })
+);
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
 
