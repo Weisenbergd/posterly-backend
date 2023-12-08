@@ -31,6 +31,7 @@ app.use(limiter);
 
 const corsOptions = {
   origin: "https://posterly-frontend-production.up.railway.app",
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
