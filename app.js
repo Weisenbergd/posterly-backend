@@ -29,15 +29,27 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://posterly-frontend-production.up.railway.app/",
-    ],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:5173",
+//       "https://posterly-frontend-production.up.railway.app/",
+//     ],
+//     credentials: true,
+//   })
+// );
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+
+  next();
+});
+
 app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser());
 
